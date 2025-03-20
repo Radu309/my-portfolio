@@ -1,0 +1,110 @@
+#experience {
+    width: 90%;
+    padding: 80px 0;
+    background-color: white;
+    text-align: center;
+    position: relative;
+
+
+    .background-title {
+        font-size: 6rem;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #10d3a4;
+        position: relative;
+        z-index: 1;
+    }
+
+    .experience-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+        max-width: 1000px;
+        margin: 50px auto 0 auto;
+        text-align: left;
+    }
+
+    .education, .experience {
+        flex: 1;
+    }
+
+    .education h3, .experience h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 20px;
+    }
+
+    .timeline:before {
+        content: "";
+        position: absolute;
+        left: 25px;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background-color: #10d3a4;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-left: 40px;
+    }
+
+    .timeline-icon {
+        position: absolute;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        background-color: #10d3a4;
+        border-radius: 50%;
+    }
+
+    .timeline-content {
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .timeline-content h4 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem;
+        color: #555;
+    }
+}
+
+@media (max-width: 1000px) {
+    .experience-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .timeline {
+        padding-left: 0;
+    }
+
+    .timeline-item {
+        padding-left: 20px;
+    }
+    .timeline:before {
+        left: 5px;
+    }
+}
