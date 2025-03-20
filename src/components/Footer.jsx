@@ -6,13 +6,13 @@ function Footer() {
             <div className="container">
                 <div className="social-icons">
                     <a href="https://www.linkedin.com/in/radu-neaca/" target="_blank">
-                        <img src="/linkedin.svg" alt="Linkedin"/>
+                        <img src="public/linkedin.svg" alt="Linkedin"/>
                     </a>
                     <a href="https://github.com/Radu309" target="_blank">
-                        <img src="/github.svg" alt="Github"/>
+                        <img src="public/github.svg" alt="Github"/>
                     </a>
                     <a href="https://www.instagram.com/radu309/" target="_blank">
-                        <img src="/instagram.svg" alt="Instagram"/>
+                        <img src="public/instagram.svg" alt="Instagram"/>
                     </a>
                 </div>
 
