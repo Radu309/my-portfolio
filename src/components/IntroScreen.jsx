@@ -32,7 +32,6 @@ function IntroScreen() {
         return () => clearTimeout(timeout);
     }, [text, isDeleting, index]);
 
-    // Detectăm scroll-ul și ascundem butonul
     useEffect(() => {
         const handleScroll = () => {
             setShowScrollIcon(window.scrollY < 50);
@@ -66,7 +65,6 @@ function IntroScreen() {
                 </div>
             </div>
 
-            {/* Butonul de scroll care se mișcă mereu și dispare la scroll */}
             <div className={`scroll-icon ${showScrollIcon ? "" : "scroll-hidden"}`}>⌄</div>
         </section>
     );
