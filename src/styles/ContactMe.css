@@ -1,30 +1,4 @@
 #contact {
-    width: 90%;
-    padding: 80px 0;
-    background-color: white;
-    text-align: center;
-    position: relative;
-
-
-    .background-title {
-        font-size: 6rem;
-        font-weight: bold;
-        color: rgba(0, 0, 0, 0.1);
-        position: absolute;
-        top: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 0;
-    }
-
-    .section-title {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #10d3a4;
-        position: relative;
-        z-index: 1;
-    }
-
     .contact-form {
         max-width: 600px;
         margin: 50px auto 0 auto;
@@ -79,14 +53,17 @@
         color: white;
     }
 }
+@media (max-width: 900px) {
+    #contact {
+        .input-group {
+            flex-direction: column;
+            gap: 10px;
+        }
 
-@media (max-width: 768px) {
-    .input-group {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .background-title {
-        font-size: 4rem;
+        .background-title {
+            font-size: 4rem;
+        }
     }
 }
+
+

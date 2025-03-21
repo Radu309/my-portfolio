@@ -38,48 +38,46 @@ function ContactMe() {
 
     return (
         <section id="contact">
-            <div className="container">
-                <h1 className="background-title">CONTACT</h1>
-                <h2 className="section-title">CONTACT ME</h2>
+            <h1 className="background-title">CONTACT</h1>
+            <h2 className="section-title">CONTACT ME</h2>
 
-                <form className="contact-form" onSubmit={handleSubmit}>
-                    <div className="input-group">
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Your Name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                        />
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Your Email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
+            <form className="contact-form" onSubmit={handleSubmit}>
+                <div className="input-group">
                     <input
                         type="text"
-                        name="subject"
-                        placeholder="Subject"
-                        value={formData.subject}
+                        name="name"
+                        placeholder="Your Name"
+                        value={formData.name}
                         onChange={handleChange}
                         required
                     />
-                    <textarea
-                        name="message"
-                        placeholder="Message"
-                        value={formData.message}
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        value={formData.email}
                         onChange={handleChange}
                         required
-                    ></textarea>
-                    <button type="submit" className="submit-btn">Send Message</button>
-                </form>
-                {status && <p className="status-message">{status}</p>}
-            </div>
+                    />
+                </div>
+                <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                />
+                <textarea
+                    name="message"
+                    placeholder="Message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                ></textarea>
+                <button type="submit" className="submit-btn">Send Message</button>
+            </form>
+            {status && <p className="status-message">{status}</p>}
         </section>
     );
 }
