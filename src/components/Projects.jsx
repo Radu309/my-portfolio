@@ -72,16 +72,16 @@ function Projects(){
                             utilized gRPC for efficient communication between services.</p>
                         <div className="technologies">
                             <a className="tech-icon">
-                                <img src="src/public/c-sharp.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/c-sharp.png" alt="tech-icon"/>
                             </a>
                             <div className="tech-icon">
-                                <img src="src/public/postgre.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/postgre.png" alt="tech-icon"/>
                             </div>
                             <div className="tech-icon">
-                                <img src="src/public/react.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/react.png" alt="tech-icon"/>
                             </div>
                             <div className="tech-icon">
-                                <img src="src/public/.net.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/.net.png" alt="tech-icon"/>
                             </div>
                         </div>
                     </div>
@@ -95,10 +95,10 @@ function Projects(){
                             segmentation.</p>
                         <div className="technologies">
                             <div className="tech-icon">
-                                <img src="src/public/python.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/python.png" alt="tech-icon"/>
                             </div>
                             <div className="tech-icon">
-                                <img src="src/public/artificial-intelligence.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/artificial-intelligence.png" alt="tech-icon"/>
                             </div>
                         </div>
                     </div>
@@ -112,16 +112,16 @@ function Projects(){
                             handling.</p>
                         <div className="technologies">
                             <div className="tech-icon">
-                                <img src="src/public/java.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/java.png" alt="tech-icon"/>
                             </div>
                             <div className="tech-icon">
-                                <img src="src/public/postgre.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/postgre.png" alt="tech-icon"/>
                             </div>
                             <div className="tech-icon">
-                                <img src="src/public/cloud.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/cloud.png" alt="tech-icon"/>
                             </div>
                             <div className="tech-icon">
-                                <img src="src/public/react.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/react.png" alt="tech-icon"/>
                             </div>
                         </div>
                     </div>
@@ -135,16 +135,16 @@ function Projects(){
                         <p>{"\u00A0"}</p>
                         <div className="technologies">
                             <div className="tech-icon">
-                                <img src="src/public/react.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/react.png" alt="tech-icon"/>
                             </div>
                             <div className="tech-icon">
-                                <img src="src/public/java-script.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/java-script.png" alt="tech-icon"/>
                             </div>
                             <div className="tech-icon">
-                                <img src="src/public/html.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/html.png" alt="tech-icon"/>
                             </div>
                             <div className="tech-icon">
-                                <img src="src/public/cloud.png" alt="tech-icon"/>
+                                <img src="/my-portfolio/cloud.png" alt="tech-icon"/>
                             </div>
                         </div>
                     </div>

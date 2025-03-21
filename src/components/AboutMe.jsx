@@ -45,7 +45,7 @@ function AboutMe(){
 
             <div className="about-content">
                 <div className="about-image">
-                    <img src="src/public/profile-2.jpg" alt="Profile"/>
+                    <img src="/my-portfolio/profile-2.jpg" alt="Profile"/>
                 </div>
 
                 <div className="about-text">

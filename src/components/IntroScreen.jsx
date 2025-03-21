@@ -53,7 +53,7 @@ function IntroScreen() {
     return (
         <section id="intro-screen">
             <div className="intro-content">
-                <img src="src/public/profile-1.jpg" alt="Profile" className="profile-image" />
+                <img src="/my-portfolio/profile-1.jpg" alt="Profile" className="profile-image" />
 
                 <div className="text-content">
                     <p className="first-world">I'm</p>
