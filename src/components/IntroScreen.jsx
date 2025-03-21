@@ -2,7 +2,7 @@ import '../styles/IntroScreen.css';
 import { useEffect, useState } from "react";
 
 function IntroScreen() {
-    const titles = ["Student", "Software Engineering"];
+    const titles = ["Master's Student", "Software Engineer"];
     const [text, setText] = useState("");
     const [index, setIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
