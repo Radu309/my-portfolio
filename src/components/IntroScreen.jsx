@@ -43,7 +43,7 @@ function IntroScreen() {
 
     const downloadCV = () => {
         const link = document.createElement("a");
-        link.href = "/Neaca_Radu-Sabin_cv.pdf";
+        link.href = "/my-portfolio/Neaca_Radu-Sabin_cv.pdf";
         link.download = "Neaca_Radu-Sabin_cv.pdf";
         document.body.appendChild(link);
         link.click();
