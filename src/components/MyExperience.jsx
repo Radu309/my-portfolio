@@ -13,6 +13,21 @@ function MyExperience() {
                         <div className="timeline-item">
                             <span className="timeline-icon"></span>
                             <div className="timeline-content">
+                                <h4>Software Engineering Intern</h4>
+                                <p><strong>BETFAIR ROMANIA DEVELOPMENT SRL</strong> | [August 2025 - Present]</p>
+                                <p>• Collaborating in the development of web applications using React.</p>
+                                <p>• Working with Jenkins and GitHub Actions for continuous integration
+                                    and delivery.</p>
+                                <p>• Contributing to CI/CD pipelines, improving deployment efficiency
+                                    and reliability.</p>
+                                <p>• Participating in code reviews and agile ceremonies within an
+                                    international team.</p>
+                            </div>
+                        </div>
+
+                        <div className="timeline-item">
+                            <span className="timeline-icon"></span>
+                            <div className="timeline-content">
                                 <h4>Software Developer</h4>
                                 <p><strong>ISERVIT CBR SRL</strong> | [August 2023 - November 2023]</p>
                                 <p>• Developed web applications using Spring Boot and React.</p>

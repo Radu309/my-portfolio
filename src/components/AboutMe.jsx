@@ -17,7 +17,7 @@ function AboutMe(){
             paragraph.innerHTML = "";
             let line = "";
 
-            words.forEach((word, index) => {
+            words.forEach((word) => {
                 const testLine = line + word + " ";
                 paragraph.innerHTML = testLine;
 
@@ -51,9 +51,12 @@ function AboutMe(){
                 <div className="about-text">
                     <h3></h3>
                     <p  ref={paragraphRef}>
-                        I am a curious and adaptable Computer Science graduate, currently pursuing a Master’s in Economic Information Technology.
-                        I enjoy problem-solving, learning new technologies, and working in collaborative environments where I can grow alongside experienced professionals.
-                        With a strong foundation in software development and analytical thinking, I approach challenges with a proactive and solution-oriented mindset.
+                        I hold a Bachelor’s degree in Computer Science, and I am currently pursuing
+                        a Master’s degree in E-Business. I am working as a Software Engineering
+                        Intern at BETFAIR ROMANIA DEVELOPMENT SRL, where I collaborate in
+                        building scalable and reliable applications. I am passionate about creating
+                        efficient digital solutions, continuous learning, and working in environments
+                        that combine innovation with teamwork.
                     </p>
 
                     <div className="about-details">
