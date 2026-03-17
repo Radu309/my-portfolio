@@ -25,6 +25,7 @@
         font-weight: bold;
     }
     .about-text p {
+        font-size: 0.9rem;
         color: #555;
         margin: 15px 0;
         line-height: 1.6;

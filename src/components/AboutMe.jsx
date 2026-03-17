@@ -1,8 +1,28 @@
 import '../styles/AboutMe.css'
 import {useEffect, useRef} from "react";
 
-function AboutMe(){
+function AboutMe({experience}){
     const paragraphRef = useRef(null);
+
+    const formatExperience = (totalMonths) => {
+    if (totalMonths === 0) return "loading...";
+
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+
+    let result = "";
+
+    if (years > 0) {
+      result += `${years} ${years === 1 ? "year" : "years"}`;
+    }
+
+    if (months > 0) {
+      if (years > 0) result += " and ";
+      result += `${months} ${months === 1 ? "month" : "months"}`;
+    }
+    console.log(result);
+    return result;
+  };
 
     useEffect(() => {
         const formatText = () => {
@@ -69,7 +89,7 @@ function AboutMe(){
                         <div className="right">
                             <p><strong>Country:</strong> Romania</p>
                             <p><strong>City:</strong> Cluj-Napoca</p>
-                            <p><strong>Experience:</strong> 5 months</p>
+                            <p><strong>Experience:</strong> {formatExperience(experience)}</p>
                             <p><strong>Birthday:</strong> 30 september 2001</p>
                         </div>
                     </div>
