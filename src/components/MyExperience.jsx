@@ -4,16 +4,16 @@ import "../styles/MyExperience.css";
 const experienceData = [
   {
     id: 1,
-    role: "Software Engineering Intern",
+    role: "Software Engineer",
     company: "BETFAIR ROMANIA DEVELOPMENT SRL",
     startDate: "2025-08",
     endDate: "Present",
     displayDate: "August 2025 - Present",
     description: [
-      "Collaborating in the development of web applications using React.",
+      "Collaborating in the development of web applications using React and Spring Boot.",
       "Working with Jenkins and GitHub Actions for continuous integration and delivery.",
       "Contributing to CI/CD pipelines, improving deployment efficiency and reliability.",
-      "Participating in code reviews and agile ceremonies within an international team.",
+      "Participating in code reviews and Agile ceremonies within an international team.",
     ],
   },
   {

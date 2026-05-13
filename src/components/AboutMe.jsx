@@ -71,10 +71,9 @@ function AboutMe({experience}){
                 <div className="about-text">
                     <h3></h3>
                     <p  ref={paragraphRef}>
-                        I hold a Bachelor’s degree in Computer Science, and I am currently pursuing
-                        a Master’s degree in E-Business. I am working as a Software Engineering
-                        Intern at BETFAIR ROMANIA DEVELOPMENT SRL, where I collaborate in
-                        building scalable and reliable applications. I am passionate about creating
+                        I hold a Bachelor’s degree in Computer Science, and I am currently working
+                        as a Software Engineer at BETFAIR ROMANIA DEVELOPMENT SRL, where I collaborate 
+                        in building scalable and reliable applications. I am passionate about creating
                         efficient digital solutions, continuous learning, and working in environments
                         that combine innovation with teamwork.
                     </p>
