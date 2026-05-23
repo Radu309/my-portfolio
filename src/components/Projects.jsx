@@ -1,6 +1,14 @@
 import "../styles/Projects.css";
 import {useEffect, useRef} from "react";
 
+const projectLinks = {
+    fitnessHub: "https://pushure.fit",
+    realTimeGameShop: "#",
+    pancreasSegmentation: "#",
+    energyManagement: "#",
+    photographerPortfolio: "#"
+};
+
 function Projects(){
     const scrollRef = useRef(null);
 
@@ -62,6 +70,34 @@ function Projects(){
             <div className="projects-scrollbar">
                 <div className="scroll-btn" onClick={() => scroll('left')}>◀</div>
                 <div className="projects-content" ref={scrollRef}>
+                    <div className="project-item">
+                        <h3 className="project-title">
+                            <a className="project-title-link" href={projectLinks.fitnessHub} target="_blank" rel="noopener noreferrer">Fitness Hub Application</a>
+                        </h3>
+                        <p className="project-description">
+                            Pushure is a web platform that allows users to access multiple gyms with a single
+                            subscription, discover coaches, and manage their fitness journey online.
+                            The application provides a seamless experience for finding gyms, booking, and
+                            connecting with personal trainers.
+                        </p>
+                        <div className="technologies">
+                            <div className="tech-icon">
+                                <img src="/my-portfolio/java.png" alt="tech-icon"/>
+                            </div>
+                            <div className="tech-icon">
+                                <img src="/my-portfolio/postgre.png" alt="tech-icon"/>
+                            </div>
+                            <div className="tech-icon">
+                                <img src="/my-portfolio/cloud.png" alt="tech-icon"/>
+                            </div>
+                            <div className="tech-icon">
+                                <img src="/my-portfolio/react.png" alt="tech-icon"/>
+                            </div>
+                            <div className="tech-icon">
+                                <img src="/my-portfolio/spring-boot.png" alt="tech-icon"/>
+                            </div>
+                        </div>
+                    </div>
                     <div className="project-item">
                         <h3 className="project-title">Real-Time Game Shop</h3>
                         <p className="project-description">
