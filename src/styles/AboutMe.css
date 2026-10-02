@@ -20,9 +20,8 @@
         text-align: left;
         max-width: 500px;
     }
-    .about-text h3 {
-        font-size: 1.5rem;
-        font-weight: bold;
+    .about-text a {
+        color: inherit;
     }
     .about-text p {
         font-size: 0.9rem;

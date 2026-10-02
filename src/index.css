@@ -2,21 +2,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
-#root {
+#root,
+main {
   width: 100%;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
+  background-color: white;
   line-height: 1.6;
+  overflow-x: hidden;
 }
-

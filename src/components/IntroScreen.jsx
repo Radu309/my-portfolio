@@ -1,34 +1,36 @@
 import '../styles/IntroScreen.css';
 import { useEffect, useState } from "react";
+import {asset} from "../utils/asset.js";
+
+const titles = ["Master's Student", "Software Engineer"];
+const typingSpeed = 150;
+const deletingSpeed = 100;
+const pauseTime = 1000;
 
 function IntroScreen() {
-    const titles = ["Master's Student", "Software Engineer"];
     const [text, setText] = useState("");
     const [index, setIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const [showScrollIcon, setShowScrollIcon] = useState(true);
-    const typingSpeed = 150;
-    const deletingSpeed = 100;
-    const pauseTime = 1000;
 
     useEffect(() => {
-        const handleTyping = () => {
-            const currentTitle = titles[index];
-            if (!isDeleting) {
-                setText(currentTitle.substring(0, text.length + 1));
-                if (text === currentTitle) {
-                    setTimeout(() => setIsDeleting(true), pauseTime);
-                }
-            } else {
-                setText(currentTitle.substring(0, text.length - 1));
-                if (text === "") {
-                    setIsDeleting(false);
-                    setIndex((prev) => (prev + 1) % titles.length);
-                }
-            }
-        };
+        const currentTitle = titles[index];
+        let delay = isDeleting ? deletingSpeed : typingSpeed;
+        let step;
 
-        const timeout = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
+        if (!isDeleting && text === currentTitle) {
+            delay = pauseTime;
+            step = () => setIsDeleting(true);
+        } else if (isDeleting && text === "") {
+            step = () => {
+                setIsDeleting(false);
+                setIndex((prev) => (prev + 1) % titles.length);
+            };
+        } else {
+            step = () => setText(currentTitle.substring(0, text.length + (isDeleting ? -1 : 1)));
+        }
+
+        const timeout = setTimeout(step, delay);
         return () => clearTimeout(timeout);
     }, [text, isDeleting, index]);
 
@@ -41,31 +43,22 @@ function IntroScreen() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const downloadCV = () => {
-        const link = document.createElement("a");
-        link.href = "/my-portfolio/Neaca_Radu-Sabin_cv.pdf";
-        link.download = "Neaca_Radu-Sabin_cv.pdf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
-
     return (
         <section id="intro-screen">
             <div className="intro-content">
-                <img src="/my-portfolio/profile-1.jpg" alt="Profile" className="profile-image" />
+                <img src={asset("profile-1.jpg")} alt="Radu Neacă" className="profile-image" width="400" height="400" />
 
                 <div className="text-content">
-                    <p className="first-world">I'm</p>
+                    <p>I'm</p>
                     <h1 className="name-title">Radu Neacă</h1>
-                    <h1 className="headline-title">{text || "\u00A0"}</h1>
+                    <div className="headline-title">{text || " "}</div>
                     <div className="buttons">
-                        <button className="cv-button" onClick={downloadCV}>Download CV</button>
+                        <a className="cv-button" href={asset("Neaca_Radu-Sabin_cv.pdf")} download>Download CV</a>
                     </div>
                 </div>
             </div>
 
-            <div className={`scroll-icon ${showScrollIcon ? "" : "scroll-hidden"}`}>⌄</div>
+            <div className={`scroll-icon ${showScrollIcon ? "" : "scroll-hidden"}`} aria-hidden="true">⌄</div>
         </section>
     );
 }

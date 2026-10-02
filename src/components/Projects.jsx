@@ -1,13 +1,7 @@
 import "../styles/Projects.css";
 import {useEffect, useRef} from "react";
-
-const projectLinks = {
-    fitnessHub: "https://pushure.fit",
-    realTimeGameShop: "#",
-    pancreasSegmentation: "#",
-    energyManagement: "#",
-    photographerPortfolio: "#"
-};
+import {asset} from "../utils/asset.js";
+import {projects} from "../data/projects.js";
 
 function Projects(){
     const scrollRef = useRef(null);
@@ -54,138 +48,39 @@ function Projects(){
     }, []);
 
     const scroll = (direction) => {
-        const { current } = scrollRef;
         const scrollAmount = 400;
-        if (direction === 'left') {
-            current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        } else {
-            current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
+        scrollRef.current.scrollBy({
+            left: direction === 'left' ? -scrollAmount : scrollAmount,
+            behavior: 'smooth',
+        });
     };
 
     return (
         <section id = "projects">
-            <h1 className="background-title">PROJECTS</h1>
+            <div className="background-title" aria-hidden="true">PROJECTS</div>
             <h2 className="section-title">MY PROJECTS</h2>
             <div className="projects-scrollbar">
-                <div className="scroll-btn" onClick={() => scroll('left')}>◀</div>
+                <button type="button" className="scroll-btn" aria-label="Scroll projects left" onClick={() => scroll('left')}>◀</button>
                 <div className="projects-content" ref={scrollRef}>
-                    <div className="project-item">
-                        <h3 className="project-title">
-                            <a className="project-title-link" href={projectLinks.fitnessHub} target="_blank" rel="noopener noreferrer">Fitness Hub Application</a>
-                        </h3>
-                        <p className="project-description">
-                            Pushure is a web platform that allows users to access multiple gyms with a single
-                            subscription, discover coaches, and manage their fitness journey online.
-                            The application provides a seamless experience for finding gyms, booking, and
-                            connecting with personal trainers.
-                        </p>
-                        <div className="technologies">
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/java.png" alt="tech-icon"/>
+                    {projects.map((project) => (
+                        <article className="project-item" key={project.id}>
+                            <h3 className="project-title">
+                                {project.link ? (
+                                    <a className="project-title-link" href={project.link} target="_blank" rel="noopener noreferrer">{project.title}</a>
+                                ) : project.title}
+                            </h3>
+                            <p className="project-description">{project.description}</p>
+                            <div className="technologies">
+                                {project.technologies.map(({icon, name}) => (
+                                    <div className="tech-icon" key={name}>
+                                        <img src={asset(icon)} alt={name} title={name} width="32" height="32" loading="lazy"/>
+                                    </div>
+                                ))}
                             </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/postgre.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/cloud.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/react.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/spring-boot.png" alt="tech-icon"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="project-item">
-                        <h3 className="project-title">Real-Time Game Shop</h3>
-                        <p className="project-description">
-                            Developed a secure online game store featuring real-time interactions and microservices
-                            architecture.
-                            Built using ASP.NET Core with MVC design pattern, integrated SignalR for live updates,
-                            and
-                            utilized gRPC for efficient communication between services.</p>
-                        <div className="technologies">
-                            <a className="tech-icon">
-                                <img src="/my-portfolio/c-sharp.png" alt="tech-icon"/>
-                            </a>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/postgre.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/react.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/.net.png" alt="tech-icon"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="project-item">
-                        <h3 className="project-title">Pancreas and Tumor Segmentation</h3>
-                        <p className="project-description">
-                            Developed a medical imaging application for accurate segmentation of pancreas and
-                            pancreatic
-                            tumors from CT scans.
-                            Implemented using PyTorch and U-Net architecture to achieve precise and efficient image
-                            segmentation.</p>
-                        <div className="technologies">
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/python.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/artificial-intelligence.png" alt="tech-icon"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="project-item">
-                        <h3 className="project-title">Integrated Energy Management System</h3>
-                        <p className="project-description">
-                            Developed an integrated energy management system by connecting secure microservices
-                            deployed
-                            on virtualized infrastructure.
-                            Implemented real-time communication with WebSockets and RabbitMQ for efficient message
-                            handling.</p>
-                        <div className="technologies">
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/java.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/postgre.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/cloud.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/react.png" alt="tech-icon"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="project-item">
-                        <h3 className="project-title">Photographer Portfolio Website</h3>
-                        <p className="project-description">
-                            Developed a static portfolio website for a photographer to showcase their work and
-                            services.
-                            Built using React and hosted securely on Cloudflare.</p>
-                        <p>{"\u00A0"}</p>
-                        <p>{"\u00A0"}</p>
-                        <div className="technologies">
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/react.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/java-script.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/html.png" alt="tech-icon"/>
-                            </div>
-                            <div className="tech-icon">
-                                <img src="/my-portfolio/cloud.png" alt="tech-icon"/>
-                            </div>
-                        </div>
-                    </div>
+                        </article>
+                    ))}
                 </div>
-                <div className="scroll-btn" onClick={() => scroll('right')}>▶</div>
+                <button type="button" className="scroll-btn" aria-label="Scroll projects right" onClick={() => scroll('right')}>▶</button>
             </div>
         </section>
     )

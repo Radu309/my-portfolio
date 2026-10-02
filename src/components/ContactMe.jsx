@@ -2,16 +2,19 @@ import { useState } from "react";
 import "../styles/ContactMe.css";
 import * as emailjs from "@emailjs/browser";
 
+// EmailJS identifiers are public by design (they ship in the browser bundle).
+const SERVICE_ID = "service_7ge6p1j";
+const TEMPLATE_ID = "template_s05eajo";
+const PUBLIC_KEY = "uwY1mIu_Jpdhu_sGz";
+
+const emptyForm = { name: "", email: "", subject: "", message: "" };
 
 function ContactMe() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-    });
-
-    const [status, setStatus] = useState("");
+    const [formData, setFormData] = useState(emptyForm);
+    // Honeypot: hidden from people, so only bots fill it in.
+    const [website, setWebsite] = useState("");
+    const [isSending, setIsSending] = useState(false);
+    const [status, setStatus] = useState(null);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,26 +22,32 @@ function ContactMe() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (isSending) return;
 
-        const serviceID = "service_7ge6p1j";
-        const templateID = "template_s05eajo";
-        const publicKey = "uwY1mIu_Jpdhu_sGz";
+        if (website) {
+            setStatus({ ok: true, text: "Email sent successfully!" });
+            setFormData(emptyForm);
+            return;
+        }
 
-        emailjs.send(serviceID, templateID, formData, publicKey)
-            .then((response) => {
-                console.log("Email sent successfully:", response);
-                setStatus("Email sent successfully!");
-                setFormData({ name: "", email: "", subject: "", message: "" });
+        setIsSending(true);
+        setStatus(null);
+
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, PUBLIC_KEY)
+            .then(() => {
+                setStatus({ ok: true, text: "Email sent successfully!" });
+                setFormData(emptyForm);
             })
             .catch((error) => {
                 console.error("Error sending email:", error);
-                setStatus("Failed to send email. Please try again.");
-            });
+                setStatus({ ok: false, text: "Failed to send email. Please try again." });
+            })
+            .finally(() => setIsSending(false));
     };
 
     return (
         <section id="contact">
-            <h1 className="background-title">CONTACT</h1>
+            <div className="background-title" aria-hidden="true">CONTACT</div>
             <h2 className="section-title">CONTACT ME</h2>
 
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -47,6 +56,8 @@ function ContactMe() {
                         type="text"
                         name="name"
                         placeholder="Your Name"
+                        aria-label="Your Name"
+                        autoComplete="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -55,6 +66,8 @@ function ContactMe() {
                         type="email"
                         name="email"
                         placeholder="Your Email"
+                        aria-label="Your Email"
+                        autoComplete="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -64,6 +77,7 @@ function ContactMe() {
                     type="text"
                     name="subject"
                     placeholder="Subject"
+                    aria-label="Subject"
                     value={formData.subject}
                     onChange={handleChange}
                     required
@@ -71,13 +85,28 @@ function ContactMe() {
                 <textarea
                     name="message"
                     placeholder="Message"
+                    aria-label="Message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                 ></textarea>
-                <button type="submit" className="submit-btn">Send Message</button>
+                <input
+                    type="text"
+                    name="website"
+                    className="hp-field"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                />
+                <button type="submit" className="submit-btn" disabled={isSending}>
+                    {isSending ? "Sending..." : "Send Message"}
+                </button>
             </form>
-            {status && <p className="status-message">{status}</p>}
+            <p className={`status-message ${status?.ok === false ? "error" : ""}`} role="status">
+                {status?.text}
+            </p>
         </section>
     );
 }

@@ -73,6 +73,7 @@
     }
 
     .technologies{
+        margin-top: auto;
         display: flex;
         justify-content: center;
         gap: 25px;
@@ -104,6 +105,9 @@
     /*  scroll  */
     .scroll-btn {
         display: flex;
+        flex-shrink: 0;
+        border: none;
+        font-size: 1rem;
         background: #10d3a4;
         color: white;
         width: 40px;
@@ -123,35 +127,37 @@
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
-    .projects-scrollbar {
-        width: 100%;
-        flex-direction: column;
-    }
+    #projects {
+        .projects-scrollbar {
+            width: 100%;
+            flex-direction: column;
+        }
 
-    .projects-content {
-        flex-direction: column;
-        gap: 30px;
-        margin: 30px auto 0 auto;
-        overflow-x: visible;
-    }
+        .projects-content {
+            flex-direction: column;
+            gap: 30px;
+            margin: 30px auto 0 auto;
+            overflow-x: visible;
+        }
 
-    .project-item {
-        width: 100%;
-        max-width: none;
-        align-items: center;
-    }
+        .project-item {
+            width: 100%;
+            max-width: none;
+            align-items: center;
+        }
 
-    .technologies {
-        gap: 15px;
-        flex-wrap: wrap;
-    }
+        .technologies {
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-    .tech-icon {
-        width: 40px;
-        height: 40px;
-    }
+        .tech-icon {
+            width: 40px;
+            height: 40px;
+        }
 
-    .scroll-btn {
-        visibility: hidden;
+        .scroll-btn {
+            display: none;
+        }
     }
 }

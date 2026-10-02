@@ -52,6 +52,26 @@
         background: #10d3a4;
         color: white;
     }
+
+    .submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .contact-form .hp-field {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+    }
+
+    .status-message {
+        margin-top: 15px;
+        color: #0a9696;
+    }
+
+    .status-message.error {
+        color: #c0392b;
+    }
 }
 @media (max-width: 900px) {
     #contact {

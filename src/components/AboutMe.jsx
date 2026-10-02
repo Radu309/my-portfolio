@@ -1,78 +1,33 @@
 import '../styles/AboutMe.css'
-import {useEffect, useRef} from "react";
+import {asset} from "../utils/asset.js";
+import {getTotalExperienceMonths} from "../data/experience.js";
 
-function AboutMe({experience}){
-    const paragraphRef = useRef(null);
-
-    const formatExperience = (totalMonths) => {
-    if (totalMonths === 0) return "loading...";
-
+const formatExperience = (totalMonths) => {
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
+    const parts = [];
 
-    let result = "";
+    if (years > 0) parts.push(`${years} ${years === 1 ? "year" : "years"}`);
+    if (months > 0) parts.push(`${months} ${months === 1 ? "month" : "months"}`);
 
-    if (years > 0) {
-      result += `${years} ${years === 1 ? "year" : "years"}`;
-    }
+    return parts.join(" and ");
+};
 
-    if (months > 0) {
-      if (years > 0) result += " and ";
-      result += `${months} ${months === 1 ? "month" : "months"}`;
-    }
-    console.log(result);
-    return result;
-  };
-
-    useEffect(() => {
-        const formatText = () => {
-            const paragraph = paragraphRef.current;
-            const originalText = paragraph.getAttribute("data-original-text");
-
-            if (!originalText) {
-                paragraph.setAttribute("data-original-text", paragraph.innerText);
-            }
-
-            const words = paragraph.getAttribute("data-original-text").split(" ");
-            paragraph.innerHTML = "";
-            let line = "";
-
-            words.forEach((word) => {
-                const testLine = line + word + " ";
-                paragraph.innerHTML = testLine;
-
-                if (paragraph.scrollHeight > paragraph.clientHeight) {
-                    paragraph.innerHTML = line.trim() + "<br/>";
-                    line = word + " ";
-                } else {
-                    line = testLine;
-                }
-            });
-
-            paragraph.innerHTML = paragraph.innerHTML.trim();
-        };
-
-        formatText();
-        window.addEventListener("resize", formatText);
-        return () => window.removeEventListener("resize", formatText);
-    }, []);
-
-
+function AboutMe(){
     return (
         <section id="about-me">
-            <h1 className="background-title">ABOUT</h1>
+            <div className="background-title" aria-hidden="true">ABOUT</div>
             <h2 className="section-title">ABOUT ME</h2>
 
             <div className="about-content">
                 <div className="about-image">
-                    <img src="/my-portfolio/profile-2.jpg" alt="Profile"/>
+                    <img src={asset("profile-2.jpg")} alt="Radu Neacă" width="250" height="250" loading="lazy"/>
                 </div>
 
                 <div className="about-text">
-                    <h3></h3>
-                    <p  ref={paragraphRef}>
+                    <p>
                         I hold a Bachelor’s degree in Computer Science, and I am currently working
-                        as a Software Engineer at BETFAIR ROMANIA DEVELOPMENT SRL, where I collaborate 
+                        as a Software Engineer at BETFAIR ROMANIA DEVELOPMENT SRL, where I collaborate
                         in building scalable and reliable applications. I am passionate about creating
                         efficient digital solutions, continuous learning, and working in environments
                         that combine innovation with teamwork.
@@ -82,14 +37,12 @@ function AboutMe({experience}){
                         <div className="left">
                             <p><strong>Name:</strong> Neacă Radu-Sabin</p>
                             <p><strong>Degree:</strong> Computer Science</p>
-                            <p><strong>Phone:</strong> (+40) 773335292</p>
-                            <p><strong>Email:</strong> neaca.radu309@gmail.com</p>
+                            <p><strong>Email:</strong> <a href="mailto:neaca.radu309@gmail.com">neaca.radu309@gmail.com</a></p>
                         </div>
                         <div className="right">
                             <p><strong>Country:</strong> Romania</p>
                             <p><strong>City:</strong> Cluj-Napoca</p>
-                            <p><strong>Experience:</strong> {formatExperience(experience)}</p>
-                            <p><strong>Birthday:</strong> 30 september 2001</p>
+                            <p><strong>Experience:</strong> {formatExperience(getTotalExperienceMonths())}</p>
                         </div>
                     </div>
                 </div>
