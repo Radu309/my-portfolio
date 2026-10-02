@@ -39,7 +39,14 @@
         background-color: #0a9696;
     }
 
+    .other-projects-title {
+        margin-top: 50px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
     .project-title {
+        font-size: 1.17rem;
         text-align: center;
         font-weight: 700;
         color: #0a9696;

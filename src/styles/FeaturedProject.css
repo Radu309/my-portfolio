@@ -1,0 +1,234 @@
+#featured-project {
+    margin: 50px auto 0 auto;
+    padding: 40px;
+    max-width: 100%;
+    text-align: left;
+    background: #f4fdfa;
+    border: 2px solid #10d3a4;
+    border-radius: 16px;
+
+    .featured-label {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        background: #10d3a4;
+        color: white;
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .featured-title {
+        margin-top: 12px;
+        font-size: 2rem;
+        line-height: 1.2;
+        color: #0a9696;
+    }
+
+    .featured-title span {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: normal;
+        color: #555;
+    }
+
+    .featured-summary {
+        margin-top: 15px;
+        max-width: 720px;
+        color: #555;
+    }
+
+    .featured-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .featured-link {
+        padding: 10px 22px;
+        border: 2px solid #10d3a4;
+        border-radius: 25px;
+        color: #0a9696;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+    }
+
+    .featured-link.primary,
+    .featured-link:hover {
+        background: #10d3a4;
+        color: white;
+    }
+
+    .featured-link.primary:hover {
+        background: #0a9696;
+        border-color: #0a9696;
+    }
+
+    .featured-gallery {
+        margin-top: 30px;
+    }
+
+    .featured-screenshot {
+        display: block;
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        object-fit: contain;
+        background: #111;
+        border: 1px solid #d5f3ea;
+        border-radius: 12px;
+    }
+
+    .featured-thumbnails {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .featured-thumbnails button {
+        width: 96px;
+        height: 64px;
+        padding: 0;
+        background: white;
+        border: 2px solid #d5f3ea;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: 0.3s ease-in-out;
+    }
+
+    .featured-thumbnails button:hover,
+    .featured-thumbnails button.active {
+        border-color: #10d3a4;
+        opacity: 1;
+    }
+
+    .featured-thumbnails img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .featured-details {
+        display: flex;
+        gap: 40px;
+        margin-top: 30px;
+    }
+
+    .featured-built,
+    .featured-architecture {
+        flex: 1;
+        min-width: 0;
+    }
+
+    h4 {
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+        color: #0a9696;
+    }
+
+    .featured-built ul {
+        padding-left: 18px;
+    }
+
+    .featured-built li {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .architecture-flow {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+
+    .architecture-node {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 14px;
+        background: white;
+        border: 2px solid #10d3a4;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .architecture-node strong {
+        color: #0a9696;
+    }
+
+    .architecture-node span {
+        font-size: 0.8rem;
+        color: #555;
+    }
+
+    .architecture-arrow {
+        align-self: center;
+        color: #10d3a4;
+        font-weight: bold;
+        line-height: 1;
+        transform: rotate(90deg);
+    }
+
+    .architecture-infra,
+    .featured-stack {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .architecture-infra {
+        margin-top: 12px;
+        justify-content: center;
+    }
+
+    .architecture-infra li {
+        padding: 4px 10px;
+        border: 1px dashed #0a9696;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        color: #555;
+    }
+
+    .featured-stack {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #d5f3ea;
+    }
+
+    .featured-stack li {
+        padding: 5px 14px;
+        background: white;
+        border: 2px solid #10d3a4;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+@media (max-width: 900px) {
+    #featured-project {
+        padding: 24px 18px;
+
+        .featured-title {
+            font-size: 1.6rem;
+        }
+
+        .featured-details {
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .featured-stack {
+            justify-content: center;
+        }
+    }
+}

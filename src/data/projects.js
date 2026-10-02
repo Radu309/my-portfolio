@@ -1,12 +1,9 @@
 const tech = {
   java: { icon: "java.png", name: "Java" },
-  springBoot: { icon: "spring-boot.png", name: "Spring Boot" },
   postgres: { icon: "postgre.png", name: "PostgreSQL" },
   cloud: { icon: "cloud.png", name: "Cloud" },
   react: { icon: "react.png", name: "React" },
   javascript: { icon: "java-script.png", name: "JavaScript" },
-  typescript: { icon: "typescript.png", name: "TypeScript" },
-  docker: { icon: "docker.png", name: "Docker" },
   html: { icon: "html.png", name: "HTML" },
   csharp: { icon: "c-sharp.png", name: "C#" },
   dotnet: { icon: ".net.png", name: ".NET" },
@@ -14,19 +11,9 @@ const tech = {
   ai: { icon: "artificial-intelligence.png", name: "Artificial Intelligence" },
 };
 
+// Pushure, the main project, lives in featuredProject.js.
 // `link` is optional: projects without one render a plain title.
 export const projects = [
-  {
-    id: "fitness-hub",
-    title: "Fitness Hub Application",
-    link: "https://pushure.fit",
-    description:
-      "Pushure is a web platform that allows users to access multiple gyms with a single " +
-      "subscription, discover coaches, and manage their fitness journey online. " +
-      "The application provides a seamless experience for finding gyms, booking, and " +
-      "connecting with personal trainers.",
-    technologies: [tech.java, tech.springBoot, tech.react, tech.typescript, tech.postgres, tech.docker, tech.cloud],
-  },
   {
     id: "real-time-game-shop",
     title: "Real-Time Game Shop",

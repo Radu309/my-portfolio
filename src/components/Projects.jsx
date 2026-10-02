@@ -2,6 +2,7 @@ import "../styles/Projects.css";
 import {useEffect, useRef} from "react";
 import {asset} from "../utils/asset.js";
 import {projects} from "../data/projects.js";
+import FeaturedProject from "./FeaturedProject.jsx";
 
 function Projects(){
     const scrollRef = useRef(null);
@@ -59,16 +60,18 @@ function Projects(){
         <section id = "projects">
             <div className="background-title" aria-hidden="true">PROJECTS</div>
             <h2 className="section-title">MY PROJECTS</h2>
+            <FeaturedProject/>
+            <h3 className="other-projects-title">Other Projects</h3>
             <div className="projects-scrollbar">
                 <button type="button" className="scroll-btn" aria-label="Scroll projects left" onClick={() => scroll('left')}>◀</button>
                 <div className="projects-content" ref={scrollRef}>
                     {projects.map((project) => (
                         <article className="project-item" key={project.id}>
-                            <h3 className="project-title">
+                            <h4 className="project-title">
                                 {project.link ? (
                                     <a className="project-title-link" href={project.link} target="_blank" rel="noopener noreferrer">{project.title}</a>
                                 ) : project.title}
-                            </h3>
+                            </h4>
                             <p className="project-description">{project.description}</p>
                             <div className="technologies">
                                 {project.technologies.map(({icon, name}) => (
